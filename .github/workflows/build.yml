@@ -19,8 +19,8 @@ jobs:
         cp ./linux-t2-patches/*patch ./patches
         cd patches
         ls > ../linux-t2-patches/list.conf
-        sed -i -e 's/^/pve\//' ../linux-t2-patches/list.conf
         cd ..
+        sed -i -e 's/^/pve\//' ./linux-t2-patches/list.conf
         
         git clone https://github.com/fabianishere/pve-edge-kernel
         cp ./linux-t2-patches/*patch ./pve-edge-kernel/debian/patches/pve
