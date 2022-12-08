@@ -17,6 +17,9 @@ jobs:
         mkdir /repo
         cd /repo
         git clone https://github.com/t2linux/linux-t2-patches.git
+        cd linux-t2-patches
+        echo "Fake file" > list.conf
+        cd -
         mkdir patches
         cp /repo/linux-t2-patches/*patch /repo/patches
         cd patches
