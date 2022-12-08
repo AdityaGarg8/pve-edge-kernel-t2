@@ -13,9 +13,25 @@ jobs:
     - name: Get sources
       run: sudo apt update && sudo apt install devscripts debhelper equivs git
     - name: Build Kernel
-      run: |
+      run: 
+        git clone https://github.com/t2linux/linux-t2-patches.git
+        mkdir patches
+        cp ./linux-t2-patches/*patch ./patches
+        cd patches
+        ls > ../linux-t2-patches/list.conf
+        sed -i -e 's/^/pve\//' ../linux-t2-patches/list.conf
+        cd ..
+        
         git clone https://github.com/fabianishere/pve-edge-kernel
+        cp ./linux-t2-patches/*patch ./pve-edge-kernel/debian/patches/pve
         cd pve-edge-kernel
+        echo >> ./debian/patches/series.linux
+        cat ../linux-t2-patches/list.conf >> ./debian/patches/series.linux
+        cat ../linux-t2-patches/extra_config >> ./debian/config/config.pve
+        cat ./debian/patches/series.linux
+        echo
+        cat ./debian/config/config.pve
+        exit 0
         git checkout v6.0.x
         git submodule update --init --depth=1 --recursive linux
         git submodule update --init --recursive
