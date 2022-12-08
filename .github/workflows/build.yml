@@ -1,6 +1,6 @@
 name: Kernel Build
 
-on: pull_request
+on: push
 
 jobs:
   build:
