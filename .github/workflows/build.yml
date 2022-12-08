@@ -28,10 +28,6 @@ jobs:
         echo >> ./debian/patches/series.linux
         cat ../linux-t2-patches/list.conf >> ./debian/patches/series.linux
         cat ../linux-t2-patches/extra_config >> ./debian/config/config.pve
-        cat ./debian/patches/series.linux
-        echo
-        cat ./debian/config/config.pve
-        exit 0
         git submodule update --init --depth=1 --recursive linux
         git submodule update --init --recursive
         debian/rules debian/control
