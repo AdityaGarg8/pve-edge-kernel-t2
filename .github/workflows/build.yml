@@ -41,3 +41,12 @@ jobs:
       with:
         name: debs
         path: "*.deb"
+    - name: Release
+      if: github.ref == 'refs/heads/Mainline'
+      uses: softprops/action-gh-release@v1
+      with:
+        files: "*.deb"
+        tag_name: v6.0.9-1
+        draft: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
