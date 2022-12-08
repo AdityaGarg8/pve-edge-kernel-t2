@@ -16,7 +16,7 @@ jobs:
       run: 
         mkdir /repo
         cd /repo
-        git clone https://github.com/t2linux/linux-t2-patches.git
+        git clone https://github.com/t2linux/linux-t2-patches.git /repo/linux-t2-patches
         cd linux-t2-patches
         cd -
         mkdir patches
