@@ -22,6 +22,9 @@ jobs:
         cd -
         sed -i -e 's/^/pve\//' $HOME/list.conf
         git clone https://github.com/fabianishere/pve-edge-kernel
+        cd pve-edge-kernel
+        git checkout v6.0.x
+        cd -
         cp ./linux-t2-patches/*patch ./pve-edge-kernel/debian/patches/pve
         echo >> ./pve-edge-kernel/debian/patches/series.linux
         cat $HOME/list.conf >> ./pve-edge-kernel/debian/patches/series.linux
@@ -29,6 +32,15 @@ jobs:
         cat ./pve-edge-kernel/debian/patches/series.linux
         echo
         cat ./pve-edge-kernel/debian/config/config.pve
+        exit 0
+        git submodule update --init --depth=1 --recursive linux
+        git submodule update --init --recursive
+        debian/rules debian/control
+        sudo mk-build-deps -i
+        debuild -ePVE* --jobs=auto -b -uc -us
+        tree -a
+        cd
+        tree -a
     - name: Upload Artifacts
       uses: actions/upload-artifact@v3
       with:
