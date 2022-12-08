@@ -14,24 +14,26 @@ jobs:
       run: sudo apt update && sudo apt install devscripts debhelper equivs git
     - name: Build Kernel
       run: 
+        mkdir /repo
+        cd /repo
         git clone https://github.com/t2linux/linux-t2-patches.git
         mkdir patches
-        cp ./linux-t2-patches/*patch ./patches
+        cp /repo/linux-t2-patches/*patch /repo/patches
         cd patches
-        ls > $HOME/list.conf
-        cd -
-        sed -i -e 's/^/pve\//' $HOME/list.conf
+        ls > /repo/linux-t2-patches/list.conf
+        cd /repo
+        sed -i -e 's/^/pve\//' /repo/linux-t2-patches/list.conf
         git clone https://github.com/fabianishere/pve-edge-kernel
         cd pve-edge-kernel
         git checkout v6.0.x
-        cd -
-        cp ./linux-t2-patches/*patch ./pve-edge-kernel/debian/patches/pve
-        echo >> ./pve-edge-kernel/debian/patches/series.linux
-        cat $HOME/list.conf >> ./pve-edge-kernel/debian/patches/series.linux
-        cat ./linux-t2-patches/extra_config >> ./pve-edge-kernel/debian/config/config.pve
-        cat ./pve-edge-kernel/debian/patches/series.linux
+        cd /repo
+        cp /repo/linux-t2-patches/*patch /repo/pve-edge-kernel/debian/patches/pve
+        echo >> /repo/pve-edge-kernel/debian/patches/series.linux
+        cat /repo/linux-t2-patches/list.conf >> /repo/pve-edge-kernel/debian/patches/series.linux
+        cat /repo/linux-t2-patches/extra_config >> /repo/pve-edge-kernel/debian/config/config.pve
+        cat /repo/pve-edge-kernel/debian/patches/series.linux
         echo
-        cat ./pve-edge-kernel/debian/config/config.pve
+        cat /repo/pve-edge-kernel/debian/config/config.pve
         exit 0
         git submodule update --init --depth=1 --recursive linux
         git submodule update --init --recursive
