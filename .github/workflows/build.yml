@@ -29,15 +29,16 @@ jobs:
         cat ./pve-edge-kernel/debian/patches/series.linux
         echo
         cat ./pve-edge-kernel/debian/config/config.pve
+        exit 0
         git checkout v6.0.x
-        #git submodule update --init --depth=1 --recursive linux
-       # git submodule update --init --recursive
-     #   debian/rules debian/control
-       # sudo mk-build-deps -i
-      #  debuild -ePVE* --jobs=auto -b -uc -us
-      #  tree -a
-    #    cd
-    #    tree -a
+        git submodule update --init --depth=1 --recursive linux
+        git submodule update --init --recursive
+        debian/rules debian/control
+        sudo mk-build-deps -i
+        debuild -ePVE* --jobs=auto -b -uc -us
+        tree -a
+        cd
+        tree -a
     - name: Upload Artifacts
       uses: actions/upload-artifact@v3
       with:
