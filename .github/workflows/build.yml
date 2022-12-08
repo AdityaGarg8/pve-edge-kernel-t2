@@ -1,6 +1,6 @@
 name: Kernel Build
 
-on: push
+on: workflow_dispatch
 
 jobs:
   build:
@@ -10,19 +10,21 @@ jobs:
     steps:
     - name: Clean Workspace
       run: rm -rf *.deb *.ddeb *.build *.buildinfo *.changes
-    - name: Checkout Sources
-      uses: actions/checkout@v3
-      with:
-          submodules: recursive
-          path: pve-edge-kernel
-    - name: Clean Repository
-      run: git -C pve-edge-kernel submodule foreach git clean -ffdx
+    - name: Get sources
+      run: sudo apt update && sudo apt install devscripts debhelper equivs git
     - name: Build Kernel
       run: |
-        rm -rf *.deb *.ddeb *.build *.buildinfo *.changes
+        git clone https://github.com/fabianishere/pve-edge-kernel
         cd pve-edge-kernel
+        git checkout v6.0.x
+        git submodule update --init --depth=1 --recursive linux
+        git submodule update --init --recursive
         debian/rules debian/control
-        debuild -e CCACHE_DIR=/var/cache/ccache --prepend-path=/usr/lib/ccache --jobs=auto -b -uc -us
+        sudo mk-build-deps -i
+        debuild -ePVE* --jobs=auto -b -uc -us
+        tree -a
+        cd
+        tree -a
     - name: Upload Artifacts
       uses: actions/upload-artifact@v3
       with:
