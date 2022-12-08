@@ -42,7 +42,6 @@ jobs:
         name: debs
         path: "*.deb"
     - name: Release
-      if: github.ref == 'refs/heads/Mainline'
       uses: softprops/action-gh-release@v1
       with:
         files: "*.deb"
