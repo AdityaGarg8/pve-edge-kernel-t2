@@ -20,7 +20,7 @@ jobs:
         sed -i -e 's/^/pve\//' ../linux-t2-patches/list.conf
         cd ..
         echo "APT::Get::Assume-Yes \"true\";" > ./90forceyes
-        echo "APT::Get::force-yes \"true\";" > ./90forceyes
+        #echo "APT::Get::force-yes \"true\";" > ./90forceyes
         
         DOCKER_IMAGE=debian:unstable
         docker pull ${DOCKER_IMAGE}
