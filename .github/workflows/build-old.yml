@@ -1,4 +1,4 @@
-name: Kernel Build - 5.19
+name: Kernel Build - 6.0
 
 on: workflow_dispatch
 
@@ -13,7 +13,6 @@ jobs:
     - name: Build Kernel
       run: |
         git clone https://github.com/t2linux/linux-t2-patches.git
-        cd linux-t2-patches && git checkout 18d3466c7c6eba76743e65418847357f16e11a23 && rm ./2002* && cd ..
         mkdir patches
         cp ./linux-t2-patches/*patch ./patches
         cd patches
@@ -33,16 +32,15 @@ jobs:
         /bin/bash -c 'cd /repo && \
         cp ./90forceyes /etc/apt/apt.conf.d/90forceyes && \
         apt update && apt install devscripts debhelper equivs git && \
+        apt list --installed | grep python'
+        exit 0
         git clone https://github.com/fabianishere/pve-edge-kernel && \
         cd pve-edge-kernel && \
-        git checkout v5.19.x && \
+        git checkout v6.0.x && \
         cp ../linux-t2-patches/*patch ./debian/patches/pve && \
         echo >> ./debian/patches/series.linux && \
         cat ../linux-t2-patches/list.conf >> ./debian/patches/series.linux && \
-        echo "CONFIG_APPLE_BCE=m" >> ./debian/config/config.pve && \
-        echo "CONFIG_APPLE_IBRIDGE=m" >> ./debian/config/config.pve && \
-        echo "CONFIG_BT_HCIBCM4377=m" >> ./debian/config/config.pve && \
-        cat ./debian/config/config.pve && \
+        cat ../linux-t2-patches/extra_config >> ./debian/config/config.pve && \
         git submodule update --init --depth=1 --recursive linux && \
         git submodule update --init --recursive && \
         debian/rules debian/control && \
