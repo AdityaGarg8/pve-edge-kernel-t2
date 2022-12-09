@@ -10,17 +10,17 @@ jobs:
     steps:
     - name: 'Checkout Repo'
       uses: actions/checkout@v3
-    - name: Get sources
-      run: sudo apt update && sudo apt install devscripts debhelper equivs git
     - name: Build Kernel
       run: |
         DOCKER_IMAGE=debian:unstable
         docker pull ${DOCKER_IMAGE}
         docker run \
+        --privileged \
         -t \
         -v "$(pwd)":/repo \
         ${DOCKER_IMAGE} \
         /bin/bash -c 'cd /repo && \
+        apt update && apt install devscripts debhelper equivs git && \
         git clone https://github.com/t2linux/linux-t2-patches.git && \
         mkdir patches && \
         cp ./linux-t2-patches/*patch ./patches && \
@@ -38,7 +38,7 @@ jobs:
         git submodule update --init --depth=1 --recursive linux && \
         git submodule update --init --recursive && \
         debian/rules debian/control && \
-        sudo mk-build-deps -i && \
+        mk-build-deps -i && \
         debuild -ePVE* --jobs=auto -b -uc -us && \
         tree -a && \
         cd && \
