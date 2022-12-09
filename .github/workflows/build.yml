@@ -26,7 +26,7 @@ jobs:
         cp ./linux-t2-patches/*patch ./patches && \
         cd patches && \
         ls > ../linux-t2-patches/list.conf && \
-        sed -i -e 's/^/pve\//' ../linux-t2-patches/list.conf && \
+        sed -i -e \'s/^/pve\//\' ../linux-t2-patches/list.conf && \
         cd .. && \
         git clone https://github.com/fabianishere/pve-edge-kernel && \
         cd pve-edge-kernel && \
