@@ -20,7 +20,7 @@ jobs:
         -v "$(pwd)":/repo \
         ${DOCKER_IMAGE} \
         /bin/bash -c 'cd /repo && \
-        apt update && apt install devscripts debhelper equivs git && \
+        apt update && apt install devscripts debhelper equivs git -y && \
         git clone https://github.com/t2linux/linux-t2-patches.git && \
         mkdir patches && \
         cp ./linux-t2-patches/*patch ./patches && \
