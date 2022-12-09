@@ -12,6 +12,7 @@ jobs:
       uses: actions/checkout@v3
     - name: Build Kernel
       run: |
+        cat /etc/apt/apt.conf
         git clone https://github.com/t2linux/linux-t2-patches.git
         mkdir patches
         cp ./linux-t2-patches/*patch ./patches
@@ -27,7 +28,7 @@ jobs:
         -t \
         -v "$(pwd)":/repo \
         ${DOCKER_IMAGE} \
-        /bin/bash -c 'cd /repo && \
+        /bin/bash -c '/etc/apt/apt.conf && cd /repo && \
         apt update && apt install devscripts debhelper equivs git -y && \
         git clone https://github.com/fabianishere/pve-edge-kernel && \
         cd pve-edge-kernel && \
