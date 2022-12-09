@@ -57,7 +57,7 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: "*.deb"
-        tag_name: v6.0.12-1
+        tag_name: v5.19.17-1
         draft: false
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
