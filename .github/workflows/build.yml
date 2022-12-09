@@ -14,7 +14,7 @@ jobs:
       run: sudo apt update && sudo apt install devscripts debhelper equivs git
     - name: Build Kernel
       run: |
-        DOCKER_IMAGE=ubuntu:22.10
+        DOCKER_IMAGE=debian:unstable
         docker pull ${DOCKER_IMAGE}
         docker run \
         -t \
