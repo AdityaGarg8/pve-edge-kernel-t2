@@ -13,7 +13,7 @@ jobs:
     - name: Build Kernel
       run: |
         git clone https://github.com/t2linux/linux-t2-patches.git
-        cd linux-t2-patches && git checkout 18d3466c7c6eba76743e65418847357f16e11a23 && cd ..
+        cd linux-t2-patches && git checkout 18d3466c7c6eba76743e65418847357f16e11a23 && rm ./2002* && cd ..
         mkdir patches
         cp ./linux-t2-patches/*patch ./patches
         cd patches
@@ -47,10 +47,7 @@ jobs:
         git submodule update --init --recursive && \
         debian/rules debian/control && \
         mk-build-deps -i && \
-        debuild -ePVE* --jobs=auto -b -uc -us && \
-        tree -a && \
-        cd && \
-        tree -a'
+        debuild -ePVE* --jobs=auto -b -uc -us'
     - name: Upload Artifacts
       uses: actions/upload-artifact@v3
       with:
