@@ -12,6 +12,14 @@ jobs:
       uses: actions/checkout@v3
     - name: Build Kernel
       run: |
+        git clone https://github.com/t2linux/linux-t2-patches.git
+        mkdir patches
+        cp ./linux-t2-patches/*patch ./patches
+        cd patches
+        ls > ../linux-t2-patches/list.conf
+        sed -i -e \'s/^/pve\//\' ../linux-t2-patches/list.conf
+        cd ..
+        
         DOCKER_IMAGE=debian:unstable
         docker pull ${DOCKER_IMAGE}
         docker run \
@@ -21,13 +29,6 @@ jobs:
         ${DOCKER_IMAGE} \
         /bin/bash -c 'cd /repo && \
         apt update && apt install devscripts debhelper equivs git -y && \
-        git clone https://github.com/t2linux/linux-t2-patches.git && \
-        mkdir patches && \
-        cp ./linux-t2-patches/*patch ./patches && \
-        cd patches && \
-        ls > ../linux-t2-patches/list.conf && \
-        sed -i -e \'s/^/pve\//\' ../linux-t2-patches/list.conf && \
-        cd .. && \
         git clone https://github.com/fabianishere/pve-edge-kernel && \
         cd pve-edge-kernel && \
         git checkout v6.0.x && \
