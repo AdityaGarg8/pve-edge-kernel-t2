@@ -1,11 +1,16 @@
+
+
 # Proxmox Edge kernels
+
+NOTE :- THIS REPOSITORY IS STILL A WORK IN PROGRESS, AND ANY INSTRUCTIONS GIVEN BELOW ARE NOT TO BE FOLLOWED, EXCEPT FOR THE [MANUAL INSTALLATION](#manual) INSTRUCTIONS, WHICH CAN BE FOLLOWED.
+
 Custom Linux kernels for Proxmox VE 7.
 
 #### Available Versions
 1. Linux 6.0
 2. Linux 5.19 **[EOL]**
 
-Older builds are still available at the [Releases](https://github.com/fabianishere/pve-edge-kernel/releases) page.
+Older builds are still available at the [Releases](https://github.com/AdityaGarg8/pve-edge-kernel-t2/releases) page.
 
 ## Installation
 [![Hosted By: Cloudsmith](https://img.shields.io/badge/OSS%20hosting%20by-cloudsmith-blue?logo=cloudsmith&style=flat-square)](https://cloudsmith.com)
@@ -31,7 +36,7 @@ enables your organization to create, store and share packages in any format, to 
 confidence.
 
 ### Manual
-Alternatively, you may manually install the kernels. Select from the [Releases](https://github.com/fabianishere/pve-edge-kernel/releases)
+Alternatively, you may manually install the kernels. Select from the [Releases](https://github.com/AdityaGarg8/pve-edge-kernel-t2/releases)
 page the kernel version you want to install and download the appropriate Debian package.
 Then, you can install the package as follows:
 
@@ -102,7 +107,7 @@ apt remove pve-kernel-6.0*edge pve-headers-6.0*edge
 Questions, suggestions and contributions are welcome and appreciated!
 You can contribute in various meaningful ways:
 
-* Report a bug through [Github issues](https://github.com/fabianishere/pve-edge-kernel/issues).
+* Report a bug through [Github issues](https://github.com/AdityaGarg8/pve-edge-kernel-t2/issues).
 * Propose new patches and flavors for the project.
 * Contribute improvements to the documentation.
 * Provide feedback about how we can improve the project.

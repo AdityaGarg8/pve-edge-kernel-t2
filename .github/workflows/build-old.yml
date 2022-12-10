@@ -1,4 +1,4 @@
-name: Kernel Build - 6.0
+name: Kernel Build - 5.19
 
 on: workflow_dispatch
 
@@ -13,6 +13,7 @@ jobs:
     - name: Build Kernel
       run: |
         git clone https://github.com/t2linux/linux-t2-patches.git
+        cd linux-t2-patches && git checkout 18d3466c7c6eba76743e65418847357f16e11a23 && rm ./2002* && cd ..
         mkdir patches
         cp ./linux-t2-patches/*patch ./patches
         cd patches
@@ -26,7 +27,7 @@ jobs:
         do
         sed -i -e "s/\<${missing}\>//g" ./python-pkg
         done
-
+        
         DOCKER_IMAGE=debian:unstable
         docker pull ${DOCKER_IMAGE}
         docker run \
@@ -40,11 +41,14 @@ jobs:
         apt-get install $(cat ./python-pkg) && \
         git clone https://github.com/fabianishere/pve-edge-kernel && \
         cd pve-edge-kernel && \
-        git checkout v6.0.x && \
+        git checkout v5.19.x && \
         cp ../linux-t2-patches/*patch ./debian/patches/pve && \
         echo >> ./debian/patches/series.linux && \
         cat ../linux-t2-patches/list.conf >> ./debian/patches/series.linux && \
-        cat ../linux-t2-patches/extra_config >> ./debian/config/config.pve && \
+        echo "CONFIG_APPLE_BCE=m" >> ./debian/config/config.pve && \
+        echo "CONFIG_APPLE_IBRIDGE=m" >> ./debian/config/config.pve && \
+        echo "CONFIG_BT_HCIBCM4377=m" >> ./debian/config/config.pve && \
+        cat ./debian/config/config.pve && \
         git submodule update --init --depth=1 --recursive linux && \
         git submodule update --init --recursive && \
         debian/rules debian/control && \
@@ -59,7 +63,7 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: "*.deb"
-        tag_name: v6.0.12-1
+        tag_name: v5.19.17-1
         draft: false
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
