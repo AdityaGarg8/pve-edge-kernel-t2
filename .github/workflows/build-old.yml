@@ -17,6 +17,7 @@ jobs:
         mkdir patches
         cp ./linux-t2-patches/*patch ./patches
         cd patches
+        https://github.com/AdityaGarg8/T2-Ubuntu/raw/ssd/0001-bpfilter-Add-option-to-disable-logs.patch
         ls > ../linux-t2-patches/list.conf
         sed -i -e 's/^/pve\//' ../linux-t2-patches/list.conf
         cd ..
