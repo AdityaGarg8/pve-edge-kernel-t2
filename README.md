@@ -43,7 +43,7 @@ apt remove pve-kernel-6.0*edge pve-headers-6.0*edge
 Questions, suggestions and contributions are welcome and appreciated!
 You can contribute in various meaningful ways:
 
-* Report a bug through [Github issues](https://github.com/AdityaGarg8/pve-edge-kernel-t2/issues).
+* Report a bug through [Github issues](https://github.com/AdityaGarg8/pve-edge-kernel-t2/issues). Please report bugs only if you feel they are specific to T2 Macs. If your bug is something unrelated to T2 Macs and instead proxmox specific, I'd suggest you to report them to [fabianishere](https://github.com/fabianishere/pve-edge-kernel)
 * Propose new patches and flavors for the project.
 * Contribute improvements to the documentation.
 * Provide feedback about how we can improve the project.
