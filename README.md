@@ -2,7 +2,7 @@
 
 # Proxmox Edge kernels
 
-Custom Linux kernels for Proxmox VE 7 - Fork to add support for T2 kernels
+Custom Linux kernels for Proxmox VE 7 - Fork to add support for T2 Macs.
 
 The fork simply contains the CI setup to compile kernels using the scripts and documentation from [fabianishere/pve-edge-kernel](https://github.com/fabianishere/pve-edge-kernel) and [additional patches](https://github.com/t2linux/linux-t2-patches) to support T2 Macs.
 
