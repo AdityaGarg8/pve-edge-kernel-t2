@@ -39,6 +39,11 @@ command:
 apt remove pve-kernel-6.0*edge pve-headers-6.0*edge
 ```
 
+## Credits
+Following are the people/groups that made this fork possible and the links to contribute to them:
+1. [fabianishere](https://www.buymeacoffee.com/fabianishere)
+2. [t2linux](https://wiki.t2linux.org/contribute/)
+
 ## Contributing
 Questions, suggestions and contributions are welcome and appreciated!
 You can contribute in various meaningful ways:
