@@ -8,6 +8,12 @@ jobs:
     runs-on: ubuntu-22.04
     if: ${{ !contains(github.event.head_commit.message, 'skip ci') }}
     steps:
+    - name: Free up disk space for the CI
+      uses: AdityaGarg8/remove-unwanted-software@v1
+      with:
+       remove-android: 'true'
+       remove-dotnet: 'true'
+       remove-haskell: 'true'
     - name: 'Checkout Repo'
       uses: actions/checkout@v3
     - name: Build Kernel
@@ -60,7 +66,7 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: "*.deb"
-        tag_name: v6.2.16-1
+        tag_name: v6.2.16-3
         draft: false
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
