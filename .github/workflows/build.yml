@@ -23,7 +23,7 @@ jobs:
         echo "APT::Get::Assume-Yes \"true\";" > ./90forceyes
         #echo "APT::Get::force-yes \"true\";" > ./90forceyes
         apt list --installed | cut -d "/" -f 1 | grep python | xargs > ./python-pkg
-        for missing in python3-apport python3-commandnotfound python3-distupgrade python3-problem-report python3-update-manager 
+        for missing in python3-apport python3-commandnotfound python3-distupgrade python3-problem-report python3-update-manager python3.10-venv
         do
         sed -i -e "s/\<${missing}\>//g" ./python-pkg
         done
