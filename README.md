@@ -52,3 +52,7 @@ You can contribute in various meaningful ways:
 * Propose new patches and flavors for the project.
 * Contribute improvements to the documentation.
 * Provide feedback about how we can improve the project.
+
+## Donations
+
+I accept donations via Amazon Pay Gift Cards. I you wanna appreciate my work by donating, you can refer to [this link](https://wiki.t2linux.org/contribute/#support-our-maintainers) to donate me.
