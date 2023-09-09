@@ -55,4 +55,4 @@ You can contribute in various meaningful ways:
 
 ## Donations
 
-I accept donations via Amazon Pay Gift Cards. I you wanna appreciate my work by donating, you can refer to [this link](https://wiki.t2linux.org/contribute/#support-our-maintainers) to donate me.
+I accept donations via Amazon Pay Gift Cards. If you wanna appreciate my work by donating, you can refer to [this link](https://wiki.t2linux.org/contribute/#support-our-maintainers) to donate me.
