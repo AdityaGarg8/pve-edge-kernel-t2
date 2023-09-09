@@ -1,4 +1,4 @@
-name: Kernel Build - 6.1
+name: Kernel Build - 6.2
 
 on: workflow_dispatch
 
