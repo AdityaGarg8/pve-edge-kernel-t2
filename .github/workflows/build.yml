@@ -34,7 +34,7 @@ jobs:
         sed -i -e "s/\<${missing}\>//g" ./python-pkg
         done
 
-        DOCKER_IMAGE=debian:stable
+        DOCKER_IMAGE=debian:unstable
         docker pull ${DOCKER_IMAGE}
         docker run \
         --privileged \
