@@ -55,7 +55,8 @@ jobs:
         #git submodule update --init --recursive && \
         #debian/rules debian/control && \
         #mk-build-deps -i && \
-        mk-build-deps -ir debian/control && \
+        mkdir build && \
+        mk-build-deps -ir build/debian/control && \
         make deb && \
         ls -l'
         #debuild -ePVE* --jobs=auto -b -uc -us'
