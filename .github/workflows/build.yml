@@ -43,6 +43,7 @@ jobs:
         ${DOCKER_IMAGE} \
         /bin/bash -c 'cd /repo && \
         cp ./90forceyes /etc/apt/apt.conf.d/90forceyes && \
+        apt update && apt install wget && \
         echo "deb [arch=amd64] http://download.proxmox.com/debian/pve bookworm pve-no-subscription" > /etc/apt/sources.list.d/pve-install-repo.list && \
         wget https://enterprise.proxmox.com/debian/proxmox-release-bookworm.gpg -O /etc/apt/trusted.gpg.d/proxmox-release-bookworm.gpg && \ 
         apt update && apt install asciidoc-base automake bc bison cpio debhelper dh-python file flex \
