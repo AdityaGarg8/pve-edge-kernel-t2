@@ -57,7 +57,7 @@ jobs:
         #mk-build-deps -i && \
         mk-build-deps -ir debian/control && \
         make deb && \
-        ls -l && \
+        ls -l'
         #debuild -ePVE* --jobs=auto -b -uc -us'
     - name: Upload Artifacts
       uses: actions/upload-artifact@v3
