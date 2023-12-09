@@ -44,7 +44,7 @@ jobs:
         /bin/bash -c 'cd /repo && \
         cp ./90forceyes /etc/apt/apt.conf.d/90forceyes && \
         apt update && apt install asciidoc-base automake bc bison cpio debhelper dh-python file flex \
-        gcc git kmod libdw-dev libelf-dev libiberty-dev libnuma-dev libpve-common-perl libslang2-dev libssl-dev libtool lintian lz4 \
+        gcc git kmod libdw-dev libelf-dev libiberty-dev libnuma-dev libslang2-dev libssl-dev libtool lintian lz4 \
         perl-modules rsync sed sphinx-common tar xmlto zlib1g-dev && \
         apt-get install $(cat ./python-pkg) && \
         git clone https://git.proxmox.com/git/pve-kernel.git && \
