@@ -34,7 +34,7 @@ jobs:
         sed -i -e "s/\<${missing}\>//g" ./python-pkg
         done
 
-        DOCKER_IMAGE=debian:unstable
+        DOCKER_IMAGE=debian:bullseye
         docker pull ${DOCKER_IMAGE}
         docker run \
         --privileged \
@@ -43,10 +43,11 @@ jobs:
         ${DOCKER_IMAGE} \
         /bin/bash -c 'cd /repo && \
         cp ./90forceyes /etc/apt/apt.conf.d/90forceyes && \
+        echo "deb [arch=amd64] http://download.proxmox.com/debian/pve bullseye pve-no-subscription" > /etc/apt/sources.list.d/pve-install-repo.list && \
         apt update && apt install asciidoc-base automake bc bison cpio debhelper dh-python file flex \
-        gcc git kmod libdw-dev libelf-dev libiberty-dev libnuma-dev libslang2-dev libssl-dev libtool lintian lz4 \
+        gcc git kmod libdw-dev libelf-dev libiberty-dev libnuma-dev libslang2-dev libssl-dev libtool lintian lz4 dwarves libpve-common-perl \
         perl-modules rsync sed sphinx-common tar xmlto zlib1g-dev && \
-        apt-get install $(cat ./python-pkg) && \
+        #apt-get install $(cat ./python-pkg) && \
         git clone https://git.proxmox.com/git/pve-kernel.git && \
         cd pve-kernel && \
         #cp ../linux-t2-patches/*patch ./debian/patches/pve && \
