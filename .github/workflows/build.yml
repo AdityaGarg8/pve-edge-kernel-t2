@@ -53,10 +53,10 @@ jobs:
         #cat ../linux-t2-patches/extra_config >> ./debian/config/config.pve && \
         #git submodule update --init --depth=1 --recursive linux && \
         #git submodule update --init --recursive && \
-        #debian/rules debian/control && \
-        #mk-build-deps -i && \
-        mkdir build && \
-        mk-build-deps -ir build/debian/control && \
+        debian/rules debian/control && \
+        mk-build-deps -i && \
+        #mkdir build && \
+        #mk-build-deps -ir build/debian/control && \
         make deb && \
         ls -l'
         #debuild -ePVE* --jobs=auto -b -uc -us'
