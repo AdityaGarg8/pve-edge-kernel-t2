@@ -18,14 +18,14 @@ jobs:
       uses: actions/checkout@v3
     - name: Build Kernel
       run: |
-        git clone https://github.com/t2linux/linux-t2-patches.git
-        cd linux-t2-patches && git checkout 3a43f2f && wget https://github.com/AdityaGarg8/T2-Ubuntu/raw/ssd/0001-bpfilter-Add-option-to-disable-logs.patch && rm 2001* && cd ..
-        mkdir patches
-        cp ./linux-t2-patches/*patch ./patches
-        cd patches
-        ls > ../linux-t2-patches/list.conf
-        sed -i -e 's/^/pve\//' ../linux-t2-patches/list.conf
-        cd ..
+        #git clone https://github.com/t2linux/linux-t2-patches.git
+        #cd linux-t2-patches && git checkout 3a43f2f && wget https://github.com/AdityaGarg8/T2-Ubuntu/raw/ssd/0001-bpfilter-Add-option-to-disable-logs.patch && rm 2001* && cd ..
+        #mkdir patches
+        #cp ./linux-t2-patches/*patch ./patches
+        #cd patches
+        #ls > ../linux-t2-patches/list.conf
+        #sed -i -e 's/^/pve\//' ../linux-t2-patches/list.conf
+        #cd ..
         echo "APT::Get::Assume-Yes \"true\";" > ./90forceyes
         #echo "APT::Get::force-yes \"true\";" > ./90forceyes
         apt list --installed | cut -d "/" -f 1 | grep python | xargs > ./python-pkg
@@ -45,18 +45,20 @@ jobs:
         cp ./90forceyes /etc/apt/apt.conf.d/90forceyes && \
         apt update && apt install devscripts debhelper equivs git && \
         apt-get install $(cat ./python-pkg) && \
-        git clone https://github.com/jiangcuo/pve-port-kernel.git && \
-        cd pve-port-kernel && \
-        git checkout v6.2 && \
-        cp ../linux-t2-patches/*patch ./debian/patches/pve && \
-        echo >> ./debian/patches/series.linux && \
-        cat ../linux-t2-patches/list.conf >> ./debian/patches/series.linux && \
-        cat ../linux-t2-patches/extra_config >> ./debian/config/config.pve && \
-        git submodule update --init --depth=1 --recursive linux && \
-        git submodule update --init --recursive && \
-        debian/rules debian/control && \
-        mk-build-deps -i && \
-        debuild -ePVE* --jobs=auto -b -uc -us'
+        git clone https://github.com/proxmox/pve-kernel.git && \
+        cd pve-kernel && \
+        #cp ../linux-t2-patches/*patch ./debian/patches/pve && \
+        #echo >> ./debian/patches/series.linux && \
+        #cat ../linux-t2-patches/list.conf >> ./debian/patches/series.linux && \
+        #cat ../linux-t2-patches/extra_config >> ./debian/config/config.pve && \
+        #git submodule update --init --depth=1 --recursive linux && \
+        #git submodule update --init --recursive && \
+        #debian/rules debian/control && \
+        #mk-build-deps -i && \
+        mk-build-deps -ir debian/control && \
+        make deb && \
+        ls -l && \
+        #debuild -ePVE* --jobs=auto -b -uc -us'
     - name: Upload Artifacts
       uses: actions/upload-artifact@v3
       with:
@@ -66,7 +68,7 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: "*.deb"
-        tag_name: v6.2.16-3
+        tag_name: test-kernel
         draft: false
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
