@@ -1,6 +1,6 @@
-name: Kernel Build - 6.2
+name: Kernel Build - 6.5
 
-on: workflow_dispatch
+on: push
 
 jobs:
   build:
@@ -34,7 +34,7 @@ jobs:
         sed -i -e "s/\<${missing}\>//g" ./python-pkg
         done
 
-        DOCKER_IMAGE=debian:unstable
+        DOCKER_IMAGE=debian:stable
         docker pull ${DOCKER_IMAGE}
         docker run \
         --privileged \
