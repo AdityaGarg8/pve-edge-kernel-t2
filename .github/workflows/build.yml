@@ -18,8 +18,9 @@ jobs:
       uses: actions/checkout@v3
     - name: Build Kernel
       run: |
-        #git clone https://github.com/t2linux/linux-t2-patches.git
-        #cd linux-t2-patches && git checkout 3a43f2f && wget https://github.com/AdityaGarg8/T2-Ubuntu/raw/ssd/0001-bpfilter-Add-option-to-disable-logs.patch && rm 2001* && cd ..
+        git clone https://github.com/t2linux/linux-t2-patches.git
+        cd linux-t2-patches && git checkout bc5ec1bdf68bb88e0cbc959a611a2fc44cbdc868 #&& wget https://github.com/AdityaGarg8/T2-Ubuntu/raw/ssd/0001-bpfilter-Add-option-to-disable-logs.patch && rm 2001* && cd ..
+        cd ..
         #mkdir patches
         #cp ./linux-t2-patches/*patch ./patches
         #cd patches
@@ -52,7 +53,9 @@ jobs:
         #apt-get install $(cat ./python-pkg) && \
         git clone https://git.proxmox.com/git/pve-kernel.git && \
         cd pve-kernel && \
-        #cp ../linux-t2-patches/*patch ./debian/patches/pve && \
+        cp ../linux-t2-patches/*patch ./patches/kernel && \
+        cp ../T2.patch ./ && \
+        git am T2.patch
         #echo >> ./debian/patches/series.linux && \
         #cat ../linux-t2-patches/list.conf >> ./debian/patches/series.linux && \
         #cat ../linux-t2-patches/extra_config >> ./debian/config/config.pve && \
@@ -71,12 +74,12 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: debs
-        path: "*.deb"
+        path: ${{ github.workspace }}/pve-kernel
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
-        files: "*.deb"
-        tag_name: test-kernel
-        draft: false
+        files: ${{ github.workspace }}/pve-kernel
+        tag_name: 6.5.11-7
+        draft: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
