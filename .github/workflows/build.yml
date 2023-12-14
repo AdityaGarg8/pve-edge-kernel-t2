@@ -55,7 +55,9 @@ jobs:
         cd pve-kernel && \
         cp ../linux-t2-patches/*patch ./patches/kernel && \
         cp ../T2.patch ./ && \
-        git am T2.patch
+        git config --global user.email "example@example.com" && \
+        git config --global user.name "Example Example" && \
+        git am T2.patch && \
         #echo >> ./debian/patches/series.linux && \
         #cat ../linux-t2-patches/list.conf >> ./debian/patches/series.linux && \
         #cat ../linux-t2-patches/extra_config >> ./debian/config/config.pve && \
