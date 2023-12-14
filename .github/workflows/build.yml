@@ -62,8 +62,8 @@ jobs:
         #mk-build-deps -i && \
         KERNEL_SRC_SUBMODULE=submodules/ubuntu-kernel && \
         ZFSONLINUX_SUBMODULE=submodules/zfsonlinux && \
-        git submodule update --depth 1 --init $(KERNEL_SRC_SUBMODULE) && \
-        git submodule update --init --recursive $(ZFSONLINUX_SUBMODULE) && \
+        git submodule update --depth 1 --init ${KERNEL_SRC_SUBMODULE} && \
+        git submodule update --init --recursive ${ZFSONLINUX_SUBMODULE} && \
         make deb && \
         ls -l'
         #debuild -ePVE* --jobs=auto -b -uc -us'
