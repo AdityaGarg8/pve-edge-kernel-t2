@@ -1,0 +1,25 @@
+From 134a6f44a4e0c307567d209ba9aeb7e7caa220f0 Mon Sep 17 00:00:00 2001
+From: Aditya Garg <85610623+AdityaGarg8@users.noreply.github.com>
+Date: Fri, 15 Dec 2023 00:03:19 +0530
+Subject: [PATCH] Add t2 drivers
+
+---
+ debian/rules | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/debian/rules b/debian/rules
+index 2718672..7512349 100755
+--- a/debian/rules
++++ b/debian/rules
+@@ -103,6 +103,11 @@ PMX_CONFIG_OPTS= \
+ -d CONFIG_GDS_FORCE_MITIGATION \
+ -d CONFIG_WQ_CPU_INTENSIVE_REPORT \
+ -d UBSAN_BOUNDS \
++-m CONFIG_HID_APPLETB_BL \
++-m CONFIG_HID_APPLETB_KBD \
++-m CONFIG_DRM_APPLETBDRM \
++-m CONFIG_HID_APPLE_MAGIC_BACKLIGHT \
++-m CONFIG_APPLE_BCE \
+ 
+ debian/control: $(wildcard debian/*.in)
+ 	sed -e 's/@@KVNAME@@/$(KVNAME)/g' < debian/proxmox-kernel.prerm.in > debian/$(PMX_KERNEL_PKG).prerm
