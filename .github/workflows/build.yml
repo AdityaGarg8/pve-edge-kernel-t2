@@ -20,7 +20,7 @@ jobs:
       run: |
         git clone https://github.com/t2linux/linux-t2-patches.git
         cd linux-t2-patches && git checkout bc5ec1bdf68bb88e0cbc959a611a2fc44cbdc868 #&& wget https://github.com/AdityaGarg8/T2-Ubuntu/raw/ssd/0001-bpfilter-Add-option-to-disable-logs.patch && rm 2001* && cd ..
-        cd ..
+        rm 2008* && cd ..
         #mkdir patches
         #cp ./linux-t2-patches/*patch ./patches
         #cd patches
