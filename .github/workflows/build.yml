@@ -76,11 +76,11 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: debs
-        path: ${{ github.workspace }}/pve-kernel
+        path: ${{ github.workspace }}/pve-kernel/*.deb
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
-        files: ${{ github.workspace }}/pve-kernel
+        files: ${{ github.workspace }}/pve-kernel/*.deb
         tag_name: 6.5.11-7
         draft: true
       env:
