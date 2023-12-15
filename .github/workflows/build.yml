@@ -81,7 +81,7 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: ${{ github.workspace }}/pve-kernel/*.deb
-        tag_name: 6.5.11-7
+        tag_name: v6.5.11-7-t2-1
         draft: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
