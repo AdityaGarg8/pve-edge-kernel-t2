@@ -1,12 +1,29 @@
-From 134a6f44a4e0c307567d209ba9aeb7e7caa220f0 Mon Sep 17 00:00:00 2001
+From ed1678bcea8bbac24c993499e1799fd9f3d61dab Mon Sep 17 00:00:00 2001
 From: Aditya Garg <85610623+AdityaGarg8@users.noreply.github.com>
-Date: Fri, 15 Dec 2023 00:03:19 +0530
-Subject: [PATCH] Add t2 drivers
+Date: Fri, 15 Dec 2023 15:56:43 +0530
+Subject: [PATCH] T2 (#1)
 
+* Add t2 drivers
+
+* Update Makefile
 ---
+ Makefile     | 2 +-
  debian/rules | 5 +++++
- 1 file changed, 5 insertions(+)
+ 2 files changed, 6 insertions(+), 1 deletion(-)
 
+diff --git a/Makefile b/Makefile
+index 3745556..3a74ddd 100644
+--- a/Makefile
++++ b/Makefile
+@@ -11,7 +11,7 @@ KREL=7
+ KERNEL_MAJMIN=$(KERNEL_MAJ).$(KERNEL_MIN)
+ KERNEL_VER=$(KERNEL_MAJMIN).$(KERNEL_PATCHLEVEL)
+ 
+-EXTRAVERSION=-$(KREL)-pve
++EXTRAVERSION=-$(KREL)-pve-t2
+ KVNAME=$(KERNEL_VER)$(EXTRAVERSION)
+ PACKAGE=proxmox-kernel-$(KVNAME)
+ HDRPACKAGE=proxmox-headers-$(KVNAME)
 diff --git a/debian/rules b/debian/rules
 index 2718672..7512349 100755
 --- a/debian/rules
