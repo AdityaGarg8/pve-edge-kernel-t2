@@ -86,9 +86,8 @@ jobs:
           If you really like the work I am doing and wanna support me, consider donating here! :
           
           https://github.com/sponsors/AdityaGarg8
-          https://www.paypal.com/paypalme/AdityaGarg8
 
           Your contribution shall be appreciated and be used in my education!
-        draft: true
+        draft: false
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
