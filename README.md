@@ -4,20 +4,20 @@
 
 Custom Linux kernels for Proxmox VE 8 - Fork to add support for T2 Macs.
 
-The fork simply contains the CI setup to compile kernels using the scripts and documentation from [fabianishere/pve-edge-kernel](https://github.com/fabianishere/pve-edge-kernel) and [additional patches](https://github.com/t2linux/linux-t2-patches) to support T2 Macs.
+The fork simply contains the CI setup to compile kernels using the scripts and documentation from [fabianishere/pve-edge-kernel](https://github.com/fabianishere/pve-edge-kernel), [proxmox/pve-kernel](https://github.com/proxmox/pve-kernel) and [additional patches](https://github.com/t2linux/linux-t2-patches) to support T2 Macs.
 
 You should also refer to the [t2linux wiki](https://wiki.t2linux.org/) for help regarding miscellaneous topics related to T2 Macs.
 
 ## Installation
 Select the kernel required from the [Releases](https://github.com/AdityaGarg8/pve-edge-kernel-t2/releases)
-page you want to install and download the appropriate Debian package.
-Then, you can install the package as follows:
+page you want to install and download the appropriate Debian packages.
+Then, you can install the packages as follows:
 
 ```sh
 apt install ./pve-kernel-VERSION_amd64.deb
 ```
 
-**Note :- This fork simply uses already tried and tested scripts by fabianishere and using separate scripts is out of the scope of this fork. Reason being that I have never used proxmox before, not even on a normal PC, and do not intend to do so in the future as well. Thus, it leads to lack of testing on my part which is not a good thing to do when distributing software. So, I'll stick to using fabianishere's scripts and thus new kernels will only be released when fabianishere releases them.**
+**Note :- This fork simply uses already tried and tested scripts by fabianishere and proxmox and using separate scripts is out of the scope of this fork. Reason being that I have never used proxmox before, not even on a normal PC, and do not intend to do so in the future as well. Thus, it leads to lack of testing on my part which is not a good thing to do when distributing software. So, I'll stick to using fabianishere's and proxmox's scripts and thus new kernels will only be released when fabianishere/proxmox releases them.**
 
 ## Building manually
 You may also choose to manually build one of these kernels yourself. Refer to the [CI](https://github.com/AdityaGarg8/pve-edge-kernel-t2/blob/master/.github/workflows/build.yml) for help.
@@ -36,7 +36,7 @@ to remove all packages from a particular kernel release, use the following
 command:
 
 ```bash
-apt remove pve-kernel-6.0*edge pve-headers-6.0*edge
+apt remove pve-kernel-6.5*t2 pve-headers-6.5*t2
 ```
 
 ## Credits
@@ -55,4 +55,4 @@ You can contribute in various meaningful ways:
 
 ## Donations
 
-I accept donations via Amazon Pay Gift Cards. If you wanna appreciate my work by donating, you can refer to [this link](https://wiki.t2linux.org/contribute/#support-our-maintainers) to donate me.
+I accept donations via [GitHub Sponsors](https://github.com/sponsors/AdityaGarg8) and [PayPal](https://www.paypal.com/paypalme/AdityaGarg8). If you wanna appreciate my work by donating, you can donate me via the methods above. For more methods, you can refer to [this link](https://wiki.t2linux.org/contribute/#support-our-maintainers) to donate me.
