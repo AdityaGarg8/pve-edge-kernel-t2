@@ -55,4 +55,4 @@ You can contribute in various meaningful ways:
 
 ## Donations
 
-I accept donations via [GitHub Sponsors](https://github.com/sponsors/AdityaGarg8) and [PayPal](https://www.paypal.com/paypalme/AdityaGarg8). If you wanna appreciate my work by donating, you can donate me via the methods above. For more methods, you can refer to [this link](https://wiki.t2linux.org/contribute/#support-our-maintainers) to donate me.
+I accept donations via [GitHub Sponsors](https://github.com/sponsors/AdityaGarg8) and [Buy Me a Coffee](https://www.buymeacoffee.com/gargadityav). If you wanna appreciate my work by donating, you can donate me via the methods above. For more methods, you can refer to [this link](https://wiki.t2linux.org/contribute/#support-our-maintainers) to donate me.
