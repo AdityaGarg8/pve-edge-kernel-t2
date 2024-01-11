@@ -10,7 +10,7 @@ You should also refer to the [t2linux wiki](https://wiki.t2linux.org/) for help 
 
 ## Donations
 
-I accept donations via [GitHub Sponsors](https://github.com/sponsors/AdityaGarg8) and [Buy Me a Coffee](https://www.buymeacoffee.com/gargadityav). If you wanna appreciate my work by donating, you can donate me via the methods above. For more methods, you can refer to [this link](https://wiki.t2linux.org/contribute/#support-our-maintainers) to donate me. Your donations shall keep me motivated to maintain this repository.
+I accept donations via [GitHub Sponsors](https://github.com/sponsors/AdityaGarg8) and [Buy Me a Coffee](https://www.buymeacoffee.com/gargadityav). If you wanna appreciate my work by donating, you can donate me via the methods above. For more methods, you can refer to [this link](https://wiki.t2linux.org/contribute/#support-our-maintainers) to donate me. **Your donations shall keep me motivated to maintain this repository.**
 
 ## Installation
 Select the kernel required from the [Releases](https://github.com/AdityaGarg8/pve-edge-kernel-t2/releases)
