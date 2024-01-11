@@ -8,6 +8,8 @@ The fork simply contains the CI setup to compile kernels using the scripts and d
 
 You should also refer to the [t2linux wiki](https://wiki.t2linux.org/) for help regarding miscellaneous topics related to T2 Macs.
 
+Many people need control of fans for Proxmox, so I am linking the fan guide [here](https://wiki.t2linux.org/guides/fan/).
+
 ## Donations
 
 I accept donations via [GitHub Sponsors](https://github.com/sponsors/AdityaGarg8) and [Buy Me a Coffee](https://www.buymeacoffee.com/gargadityav). If you wanna appreciate my work by donating, you can donate me via the methods above. For more methods, you can refer to [this link](https://wiki.t2linux.org/contribute/#support-our-maintainers) to donate me. **Your donations shall keep me motivated to maintain this repository.**
