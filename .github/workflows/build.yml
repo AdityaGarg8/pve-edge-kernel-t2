@@ -84,12 +84,12 @@ jobs:
         tag_name: v6.5.11-7-t2-1
         body: |
           If you really like the work I am doing and wanna support me, consider donating here! :
-          
-          https://github.com/sponsors/AdityaGarg8
-          
-          https://www.paypal.com/paypalme/AdityaGarg8
 
-          Your contribution shall be appreciated and be used in my education!
+          https://github.com/sponsors/AdityaGarg8
+
+          https://www.buymeacoffee.com/gargadityav
+
+          Your contribution shall be appreciated and be used in my education!. **It shall also keep me motivated to maintain this repository!**
         draft: false
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
