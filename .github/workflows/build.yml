@@ -9,11 +9,12 @@ jobs:
     if: ${{ !contains(github.event.head_commit.message, 'skip ci') }}
     steps:
     - name: Free up disk space for the CI
-      uses: AdityaGarg8/remove-unwanted-software@v1
+      uses: AdityaGarg8/remove-unwanted-software@v2
       with:
        remove-android: 'true'
        remove-dotnet: 'true'
        remove-haskell: 'true'
+       remove-codeql: 'true'
     - name: 'Checkout Repo'
       uses: actions/checkout@v3
     - name: Build Kernel
