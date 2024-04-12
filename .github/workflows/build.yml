@@ -24,7 +24,7 @@ jobs:
     - name: Build Kernel
       run: |
         git clone https://github.com/t2linux/linux-t2-patches.git
-        cd linux-t2-patches && git checkout HEAD #&& wget https://github.com/AdityaGarg8/T2-Ubuntu/raw/ssd/0001-bpfilter-Add-option-to-disable-logs.patch  && cd ..
+        cd linux-t2-patches && git checkout 037e5d9c916b450eb28451e0cfc40e177bbbb69f #&& wget https://github.com/AdityaGarg8/T2-Ubuntu/raw/ssd/0001-bpfilter-Add-option-to-disable-logs.patch  && cd ..
         rm 2008* && cd ..
         #mkdir patches
         #cp ./linux-t2-patches/*patch ./patches
