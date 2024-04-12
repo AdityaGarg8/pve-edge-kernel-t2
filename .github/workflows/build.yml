@@ -9,7 +9,7 @@ jobs:
     if: ${{ !contains(github.event.head_commit.message, 'skip ci') }}
     steps:
     - name: Free up disk space for the CI
-      uses: AdityaGarg8/remove-unwanted-software@3
+      uses: AdityaGarg8/remove-unwanted-software@v3
       with:
        remove-android: 'true'
        remove-dotnet: 'true'
