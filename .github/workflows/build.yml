@@ -1,4 +1,4 @@
-name: Kernel Build - 6.5
+name: Kernel Build - 6.8
 
 on: push
 
@@ -9,15 +9,16 @@ jobs:
     if: ${{ !contains(github.event.head_commit.message, 'skip ci') }}
     steps:
     - name: Free up disk space for the CI
-      uses: jlumbroso/free-disk-space@main
+      uses: AdityaGarg8/remove-unwanted-software@master
       with:
-       tool-cache: true
-       android: true
-       dotnet: true
-       haskell: true
-       large-packages: true
-       docker-images: true
-       swap-storage: true
+       remove-android: 'true'
+       remove-dotnet: 'true'
+       remove-haskell: 'true'
+       remove-codeql: 'true'
+       remove-docker-images: 'true'
+       remove-large-packages: 'true'
+       remove-cached-tools: 'true'
+       remove-swap: 'true'
     - name: 'Checkout Repo'
       uses: actions/checkout@v3
     - name: Build Kernel
