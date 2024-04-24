@@ -83,7 +83,7 @@ jobs:
         name: debs
         path: ${{ github.workspace }}/pve-kernel/*.deb
     - name: Release
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v2
       with:
         files: ${{ github.workspace }}/pve-kernel/*.deb
         tag_name: v6.8.4-1-t2-1
