@@ -24,6 +24,13 @@ jobs:
     - name: Build Kernel
       run: |
         git clone https://github.com/t2linux/linux-t2-patches.git
+        cd linux-t2-patches
+        git checkout 0ad2b3913f5484ba8e86b6965f5d88903464261d
+        rm 2010*
+        wget https://raw.githubusercontent.com/t2linux/linux-t2-patches/main/5001-simplify-smbios-api.patch
+        wget https://raw.githubusercontent.com/t2linux/linux-t2-patches/main/5002-enable-smbios-api-for-x86.patch
+        wget https://raw.githubusercontent.com/t2linux/linux-t2-patches/main/5003-enable-apple-os-set.patch
+        cd -
         #mkdir patches
         #cp ./linux-t2-patches/*patch ./patches
         #cd patches
