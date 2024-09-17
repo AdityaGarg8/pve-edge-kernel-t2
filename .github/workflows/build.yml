@@ -61,8 +61,7 @@ jobs:
         gcc git kmod libdw-dev libelf-dev libiberty-dev libnuma-dev libslang2-dev libssl-dev libtool lintian lz4 dwarves libpve-common-perl python3-dev zstd \
         perl-modules rsync sed sphinx-common tar xmlto zlib1g-dev && \
         #apt-get install $(cat ./python-pkg) && \
-        #git clone https://git.proxmox.com/git/pve-kernel.git && \
-        git clone https://github.com/proxmox/pve-kernel.git && \
+        git clone git://git.proxmox.com/git/pve-kernel.git && \
         cd pve-kernel && \
         cp ../linux-t2-patches/*patch ./patches/kernel && \
         cp ../T2.patch ./ && \
