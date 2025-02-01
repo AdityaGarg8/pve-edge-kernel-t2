@@ -26,6 +26,12 @@ jobs:
         git clone https://github.com/t2linux/linux-t2-patches.git
         cd linux-t2-patches
         git checkout ec4545c603cf2ef315818eccce62d06ee18e5c60
+        rm -v 1005*
+        rm -v 1006*
+        rm -v 1017*
+        wget https://raw.githubusercontent.com/t2linux/linux-t2-patches/refs/heads/main/1005-HID-hid-appletb-bl-add-driver-for-the-backlight-of-A.patch
+        wget https://raw.githubusercontent.com/t2linux/linux-t2-patches/refs/heads/main/1006-HID-hid-appletb-kbd-add-driver-for-the-keyboard-mode.patch
+        wget https://raw.githubusercontent.com/t2linux/linux-t2-patches/refs/heads/main/1017-HID-hid-appletb-kbd-add-support-for-fn-toggle-betwee.patch
         wget https://raw.githubusercontent.com/t2linux/linux-t2-patches/refs/heads/main/1018-HID-hid-appletb-kbd-add-support-for-automatic-bright.patch
         cd -
         #mkdir patches
