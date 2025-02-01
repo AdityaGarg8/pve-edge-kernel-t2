@@ -1,42 +1,43 @@
-From ed1678bcea8bbac24c993499e1799fd9f3d61dab Mon Sep 17 00:00:00 2001
+From 8fc02376ff1521401ba813626a58ce907cf9c3b7 Mon Sep 17 00:00:00 2001
 From: Aditya Garg <85610623+AdityaGarg8@users.noreply.github.com>
-Date: Fri, 15 Dec 2023 15:56:43 +0530
-Subject: [PATCH] T2 (#1)
-
-* Add t2 drivers
+Date: Sat, 1 Feb 2025 19:22:28 +0530
+Subject: [PATCH] Patch 1 (#1)
 
 * Update Makefile
+
+* Update rules
 ---
  Makefile     | 2 +-
- debian/rules | 5 +++++
- 2 files changed, 6 insertions(+), 1 deletion(-)
+ debian/rules | 6 ++++++
+ 2 files changed, 7 insertions(+), 1 deletion(-)
 
 diff --git a/Makefile b/Makefile
-index 3745556..3a74ddd 100644
+index 6f7c408..73d5d84 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -11,7 +11,7 @@ KREL=7
- KERNEL_MAJMIN=$(KERNEL_MAJ).$(KERNEL_MIN)
+@@ -12,7 +12,7 @@ KERNEL_MAJMIN=$(KERNEL_MAJ).$(KERNEL_MIN)
  KERNEL_VER=$(KERNEL_MAJMIN).$(KERNEL_PATCHLEVEL)
  
+ DEB_VERSION=$(KERNEL_VER)-$(KREL)
 -EXTRAVERSION=-$(KREL)-pve
 +EXTRAVERSION=-$(KREL)-pve-t2
  KVNAME=$(KERNEL_VER)$(EXTRAVERSION)
  PACKAGE=proxmox-kernel-$(KVNAME)
  HDRPACKAGE=proxmox-headers-$(KVNAME)
 diff --git a/debian/rules b/debian/rules
-index 2718672..7512349 100755
+index e1444b7..42e439c 100755
 --- a/debian/rules
 +++ b/debian/rules
-@@ -103,6 +103,11 @@ PMX_CONFIG_OPTS= \
+@@ -105,6 +105,12 @@ PMX_CONFIG_OPTS= \
  -d CONFIG_WQ_CPU_INTENSIVE_REPORT \
  -d CONFIG_N_GSM \
  -d UBSAN_BOUNDS \
 +-m CONFIG_HID_APPLETB_BL \
 +-m CONFIG_HID_APPLETB_KBD \
 +-m CONFIG_DRM_APPLETBDRM \
-+-m CONFIG_HID_APPLE_MAGIC_BACKLIGHT \
++-m CONFIG_BT_HCIBCM4377 \
 +-m CONFIG_APPLE_BCE \
++-m CONFIG_APFS_FS \
  
  debian/control: $(wildcard debian/*.in)
  	sed -e 's/@@KVNAME@@/$(KVNAME)/g' < debian/proxmox-kernel.prerm.in > debian/$(PMX_KERNEL_PKG).prerm
