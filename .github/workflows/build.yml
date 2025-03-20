@@ -32,8 +32,6 @@ jobs:
         rm -v 4001*
         wget https://raw.githubusercontent.com/t2linux/linux-t2-patches/refs/heads/main/1005-HID-hid-appletb-bl-add-driver-for-the-backlight-of-A.patch
         wget https://raw.githubusercontent.com/t2linux/linux-t2-patches/refs/heads/main/1006-HID-hid-appletb-kbd-add-driver-for-the-keyboard-mode.patch
-        wget https://raw.githubusercontent.com/t2linux/linux-t2-patches/refs/heads/main/1017-HID-hid-appletb-kbd-add-support-for-fn-toggle-betwee.patch
-        wget https://raw.githubusercontent.com/t2linux/linux-t2-patches/refs/heads/main/1018-HID-hid-appletb-kbd-add-support-for-automatic-bright.patch
         wget https://raw.githubusercontent.com/t2linux/linux-t2-patches/refs/heads/main/4001-asahi-trackpad.patch
         wget https://raw.githubusercontent.com/t2linux/linux-t2-patches/refs/heads/main/4002-HID-quirks-remove-T2-devices-from-hid_mouse_ignore_l.patch
         wget https://raw.githubusercontent.com/t2linux/linux-t2-patches/refs/heads/main/4003-HID-apple-ignore-the-trackpad-on-T2-Macs.patch
