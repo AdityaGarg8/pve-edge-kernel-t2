@@ -25,19 +25,7 @@ jobs:
       run: |
         git clone https://github.com/t2linux/linux-t2-patches.git
         cd linux-t2-patches
-        git checkout ec4545c603cf2ef315818eccce62d06ee18e5c60
-        rm -v 1005*
-        rm -v 1006*
-        rm -v 1017*
-        rm -v 4001*
-        wget https://raw.githubusercontent.com/t2linux/linux-t2-patches/refs/heads/main/1005-HID-hid-appletb-bl-add-driver-for-the-backlight-of-A.patch
-        wget https://raw.githubusercontent.com/t2linux/linux-t2-patches/refs/heads/main/1006-HID-hid-appletb-kbd-add-driver-for-the-keyboard-mode.patch
-        wget https://raw.githubusercontent.com/t2linux/linux-t2-patches/refs/heads/main/4001-asahi-trackpad.patch
-        wget https://raw.githubusercontent.com/t2linux/linux-t2-patches/refs/heads/main/4002-HID-quirks-remove-T2-devices-from-hid_mouse_ignore_l.patch
-        wget https://raw.githubusercontent.com/t2linux/linux-t2-patches/refs/heads/main/4003-HID-apple-ignore-the-trackpad-on-T2-Macs.patch
-        wget https://raw.githubusercontent.com/t2linux/linux-t2-patches/refs/heads/main/4004-HID-magicmouse-Add-support-for-trackpads-found-on-T2.patch
-        wget https://raw.githubusercontent.com/t2linux/linux-t2-patches/refs/heads/main/4005-HID-apple-Add-necessary-IDs-and-support-for-replacem.patch
-        wget https://raw.githubusercontent.com/t2linux/linux-t2-patches/refs/heads/main/4006-HID-magicmouse-Add-MacBookPro15-1-replacement-trackp.patch
+        #git checkout ec4545c603cf2ef315818eccce62d06ee18e5c60
         cd -
         #mkdir patches
         #cp ./linux-t2-patches/*patch ./patches
