@@ -55,7 +55,7 @@ jobs:
         wget https://enterprise.proxmox.com/debian/proxmox-release-bookworm.gpg -O /etc/apt/trusted.gpg.d/proxmox-release-bookworm.gpg && \ 
         apt update && apt install asciidoc-base automake bc bison cpio debhelper dh-python file flex \
         gcc git kmod libdw-dev libelf-dev libiberty-dev libnuma-dev libslang2-dev libssl-dev libtool lintian lz4 dwarves libpve-common-perl python3-dev zstd \
-        perl-modules rsync sed sphinx-common tar xmlto zlib1g-dev && \
+        perl-modules rsync sed sphinx-common tar xmlto zlib1g-dev gawk && \
         #apt-get install $(cat ./python-pkg) && \
         git clone git://git.proxmox.com/git/pve-kernel.git && \
         cd pve-kernel && \
