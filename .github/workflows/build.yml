@@ -87,7 +87,7 @@ jobs:
       uses: softprops/action-gh-release@v2
       with:
         files: ${{ github.workspace }}/pve-kernel/*.deb
-        tag_name: v6.14.0-1-t2-1
+        tag_name: v6.14.0-2-t2-1
         body: |
           If you really like the work I am doing and wanna support me, consider donating here! :
 
