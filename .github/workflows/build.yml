@@ -5,7 +5,7 @@ on: push
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     if: ${{ !contains(github.event.head_commit.message, 'skip ci') }}
     steps:
     - name: Free up disk space for the CI
@@ -25,7 +25,7 @@ jobs:
       run: |
         git clone https://github.com/t2linux/linux-t2-patches.git
         cd linux-t2-patches
-        #git checkout ec4545c603cf2ef315818eccce62d06ee18e5c60
+        git checkout 0cb1c5fa6be80be84abf1dbd394e0d2a88887155
         cd -
         #mkdir patches
         #cp ./linux-t2-patches/*patch ./patches
@@ -87,7 +87,7 @@ jobs:
       uses: softprops/action-gh-release@v2
       with:
         files: ${{ github.workspace }}/pve-kernel/*.deb
-        tag_name: v6.14.4-1-t2-1
+        tag_name: v6.14.5-1-t2-1
         body: |
           If you really like the work I am doing and wanna support me, consider donating here! :
 
