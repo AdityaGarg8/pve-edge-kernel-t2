@@ -1,31 +1,28 @@
-From 8fc02376ff1521401ba813626a58ce907cf9c3b7 Mon Sep 17 00:00:00 2001
-From: Aditya Garg <85610623+AdityaGarg8@users.noreply.github.com>
-Date: Sat, 1 Feb 2025 19:22:28 +0530
-Subject: [PATCH] Patch 1 (#1)
+From 87e9fda2ac52c4739fad31dba49409ad1f7ab33d Mon Sep 17 00:00:00 2001
+From: Aditya Garg <gargaditya08@live.com>
+Date: Sun, 13 Jul 2025 13:01:29 +0530
+Subject: [PATCH] Add T2 support
 
-* Update Makefile
-
-* Update rules
 ---
  Makefile     | 2 +-
  debian/rules | 6 ++++++
  2 files changed, 7 insertions(+), 1 deletion(-)
 
 diff --git a/Makefile b/Makefile
-index 6f7c408..73d5d84 100644
+index b2ed04b..a125b0e 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -12,7 +12,7 @@ KERNEL_MAJMIN=$(KERNEL_MAJ).$(KERNEL_MIN)
+@@ -19,7 +19,7 @@ KERNEL_MAJMIN=$(KERNEL_MAJ).$(KERNEL_MIN)
  KERNEL_VER=$(KERNEL_MAJMIN).$(KERNEL_PATCHLEVEL)
  
- DEB_VERSION=$(KERNEL_VER)-$(KREL)
+ DEB_VERSION=$(KERNEL_VER)-$(KREL)$(PKG_REV_EXTRA)
 -EXTRAVERSION=-$(KREL)$(KREL_EXTRA)-pve
 +EXTRAVERSION=-$(KREL)$(KREL_EXTRA)-pve-t2
  KVNAME=$(KERNEL_VER)$(EXTRAVERSION)
  PACKAGE=proxmox-kernel-$(KVNAME)
  HDRPACKAGE=proxmox-headers-$(KVNAME)
 diff --git a/debian/rules b/debian/rules
-index e1444b7..42e439c 100755
+index 7f6cadf..46a3418 100755
 --- a/debian/rules
 +++ b/debian/rules
 @@ -105,6 +105,12 @@ PMX_CONFIG_OPTS= \
@@ -41,3 +38,6 @@ index e1444b7..42e439c 100755
  
  debian/control: $(wildcard debian/*.in)
  	sed -e 's/@@KVNAME@@/$(KVNAME)/g' < debian/proxmox-kernel.prerm.in > debian/$(PMX_KERNEL_PKG).prerm
+-- 
+2.50.1.windows.1
+
