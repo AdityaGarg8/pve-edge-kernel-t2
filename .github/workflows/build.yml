@@ -41,7 +41,7 @@ jobs:
         sed -i -e "s/\<${missing}\>//g" ./python-pkg
         done
 
-        DOCKER_IMAGE=debian:latest
+        DOCKER_IMAGE=debian:12
         docker pull ${DOCKER_IMAGE}
         docker run \
         --privileged \
