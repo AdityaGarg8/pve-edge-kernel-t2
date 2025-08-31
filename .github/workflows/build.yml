@@ -41,7 +41,7 @@ jobs:
         sed -i -e "s/\<${missing}\>//g" ./python-pkg
         done
 
-        DOCKER_IMAGE=debian:12
+        DOCKER_IMAGE=debian:trixie
         docker pull ${DOCKER_IMAGE}
         docker run \
         --privileged \
@@ -51,9 +51,13 @@ jobs:
         /bin/bash -c 'cd /repo && \
         cp ./90forceyes /etc/apt/apt.conf.d/90forceyes && \
         apt update && apt install wget && \
-        echo "deb [arch=amd64] http://download.proxmox.com/debian/pve bookworm pve-no-subscription" > /etc/apt/sources.list.d/pve-install-repo.list && \
-        wget https://enterprise.proxmox.com/debian/proxmox-release-bookworm.gpg -O /etc/apt/trusted.gpg.d/proxmox-release-bookworm.gpg && \ 
-        apt update && apt install asciidoc-base automake bc bison cpio debhelper dh-python file flex \
+        echo "Types: deb" > /etc/apt/sources.list.d/pve-install-repo.sources && \
+        echo 'URIs: http://download.proxmox.com/debian/pve' >> /etc/apt/sources.list.d/pve-install-repo.sources && \
+        echo 'Suites: trixie' >> /etc/apt/sources.list.d/pve-install-repo.sources && \
+        echo 'Components: pve-no-subscription' >> /etc/apt/sources.list.d/pve-install-repo.sources && \
+        echo 'Signed-By: /usr/share/keyrings/proxmox-archive-keyring.gpg' >> /etc/apt/sources.list.d/pve-install-repo.sources && \
+        wget https://enterprise.proxmox.com/debian/proxmox-archive-keyring-trixie.gpg -O /usr/share/keyrings/proxmox-archive-keyring.gpg && \ 
+        apt modernize-sources && apt update && apt install asciidoc-base automake bc bison cpio debhelper dh-python file flex \
         gcc git kmod libdw-dev libelf-dev libiberty-dev libnuma-dev libslang2-dev libssl-dev libtool lintian lz4 dwarves libpve-common-perl python3-dev zstd \
         perl-modules rsync sed sphinx-common tar xmlto zlib1g-dev gawk && \
         #apt-get install $(cat ./python-pkg) && \
@@ -87,7 +91,7 @@ jobs:
       uses: softprops/action-gh-release@v2
       with:
         files: ${{ github.workspace }}/pve-kernel/*.deb
-        tag_name: v6.14.11-1-t2-1
+        tag_name: v6.14.11-1-t2-2
         body: |
           If you really like the work I am doing and wanna support me, consider donating here! :
 
