@@ -1,6 +1,6 @@
-From 87e9fda2ac52c4739fad31dba49409ad1f7ab33d Mon Sep 17 00:00:00 2001
+From 2fbb518bec6390339e3aff67093f30397fefb2de Mon Sep 17 00:00:00 2001
 From: Aditya Garg <gargaditya08@live.com>
-Date: Sun, 13 Jul 2025 13:01:29 +0530
+Date: Thu, 9 Oct 2025 10:53:52 +0530
 Subject: [PATCH] Add T2 support
 
 ---
@@ -9,7 +9,7 @@ Subject: [PATCH] Add T2 support
  2 files changed, 7 insertions(+), 1 deletion(-)
 
 diff --git a/Makefile b/Makefile
-index b2ed04b..a125b0e 100644
+index 3ce7450..5aaad82 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -19,7 +19,7 @@ KERNEL_MAJMIN=$(KERNEL_MAJ).$(KERNEL_MIN)
@@ -22,10 +22,10 @@ index b2ed04b..a125b0e 100644
  PACKAGE=proxmox-kernel-$(KVNAME)
  HDRPACKAGE=proxmox-headers-$(KVNAME)
 diff --git a/debian/rules b/debian/rules
-index 7f6cadf..46a3418 100755
+index 956db63..933da65 100755
 --- a/debian/rules
 +++ b/debian/rules
-@@ -105,6 +105,12 @@ PMX_CONFIG_OPTS= \
+@@ -106,6 +106,12 @@ PMX_CONFIG_OPTS= \
  -d CONFIG_N_GSM \
  -d UBSAN_BOUNDS \
  -d KVM_INTEL_PROVE_VE \
@@ -36,8 +36,8 @@ index 7f6cadf..46a3418 100755
 +-m CONFIG_APPLE_BCE \
 +-m CONFIG_APFS_FS \
  
+ 
  debian/control: $(wildcard debian/*.in)
- 	sed -e 's/@@KVNAME@@/$(KVNAME)/g' < debian/proxmox-kernel.prerm.in > debian/$(PMX_KERNEL_PKG).prerm
 -- 
-2.50.1.windows.1
+2.32.7
 
