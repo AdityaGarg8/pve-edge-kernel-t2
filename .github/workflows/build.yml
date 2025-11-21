@@ -20,7 +20,7 @@ jobs:
        remove-cached-tools: 'true'
        remove-swapfile: 'true'
     - name: 'Checkout Repo'
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
     - name: Build Kernel
       run: |
         git clone https://github.com/t2linux/linux-t2-patches.git
