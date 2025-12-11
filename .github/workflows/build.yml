@@ -25,7 +25,7 @@ jobs:
       run: |
         git clone https://github.com/t2linux/linux-t2-patches.git
         cd linux-t2-patches
-        #git checkout 0cb1c5fa6be80be84abf1dbd394e0d2a88887155
+        git checkout 699c8fdf6e5d0c3bbd3487960df42881d4e8ffd9
         cd -
         #mkdir patches
         #cp ./linux-t2-patches/*patch ./patches
